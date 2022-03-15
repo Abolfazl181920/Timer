@@ -5,6 +5,7 @@ const Pomodoro = () => {
     const [ minutes, setMinutes ] = useState(25);
     const [ seconds, setSeconds ] = useState(0);
     const [ displayMessage, setDisplayMessage ] = useState(false);
+
     const timerMinutes = minutes < 10 ? `0${minutes}` : minutes;
     const timerSeconds = seconds < 10 ? `0${seconds}` : seconds;
 
@@ -26,6 +27,7 @@ const Pomodoro = () => {
             } else {
                 setSeconds(seconds - 1);
             }
+            
         }, 1000);
     }, [ seconds ]);
 
