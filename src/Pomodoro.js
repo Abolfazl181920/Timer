@@ -16,6 +16,12 @@ const Pomodoro = () => {
                 if (minutes !== 0) {
                     setSeconds(59);
                     setMinutes(minutes - 1);
+                } else {
+                    let seconds = displayMessage ? 24 : 4;
+                    let minutes = 59;
+
+                    setSeconds(seconds);
+                    setMinutes(minutes);
                 }
             } else {
                 setSeconds(seconds - 1);
