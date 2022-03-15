@@ -1,12 +1,17 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
 const Pomodoro = () => {
+
+    const [ minutes, setMinutes ] = useState(25);
+    const [ seconds, setSeconds ] = useState(0);
+    const [ displayMessage, setDisplayMessage ] = useState(false);
+
     return (
         <div className="pomodoro">
             <div className="message">
-                <div>Break time! New sessions is coming...</div>
+                { displayMessage && <div>Break time! New sessions is coming...</div> }
             </div>
-            <div className="timer">25:00</div>
+            <div className="timer"> { minutes } : { seconds } </div>
         </div>
     );
 }
