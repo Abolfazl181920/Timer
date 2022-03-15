@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const Pomodoro = () => {
 
-    const [ minutes, setMinutes ] = useState(25);
+    const [ minutes, setMinutes ] = useState(1);
     const [ seconds, setSeconds ] = useState(0);
     const [ displayMessage, setDisplayMessage ] = useState(false);
 
@@ -18,23 +18,24 @@ const Pomodoro = () => {
                     setSeconds(59);
                     setMinutes(minutes - 1);
                 } else {
-                    let seconds = displayMessage ? 24 : 4;
-                    let minutes = 59;
+                    let minutes = displayMessage ? 24 : 4;
+                    let seconds = 59;
 
                     setSeconds(seconds);
                     setMinutes(minutes);
+                    setDisplayMessage(!displayMessage);
                 }
             } else {
                 setSeconds(seconds - 1);
             }
-            
+
         }, 1000);
     }, [ seconds ]);
 
     return (
         <div className="pomodoro">
             <div className="message">
-                { displayMessage && <div>Break time! New sessions is coming...</div> }
+                { displayMessage && <div>Break time! New session starts in:</div> }
             </div>
             <div className="timer"> { timerMinutes }:{ timerSeconds } </div>
         </div>
